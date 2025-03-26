@@ -42,10 +42,15 @@ int main()
     Vector2d x3_qr=qr3.solve(b3);
 
 
-    /*Calcolo gli errori relativi dei sistemi*/
+    /*Calcolo gli errori relativi dei sistemi.
+    Per farlo uso il metodo norm definito sulla classe Vector, che permette di calcolare la norma euclidea dei vettori*/
     Vector2d x_ex=Vector2d::Ones();
-
-    cout<<x_ex<<endl;
+    double err1_lu=(x1_lu-x_ex).norm()/x_ex.norm();
+    double err1_qr=(x1_qr-x_ex).norm()/x_ex.norm();
+    double err2_lu=(x2_lu-x_ex).norm()/x_ex.norm();
+    double err2_qr=(x2_qr-x_ex).norm()/x_ex.norm();
+    double err3_lu=(x3_lu-x_ex).norm()/x_ex.norm();
+    double err3_qr=(x3_qr-x_ex).norm()/x_ex.norm();
 
 
     /*Output esemplificativo per vedere che tutto funziona*/
@@ -59,14 +64,10 @@ int main()
     cout<<endl;
     cout<<"2)QR decomposition x1 = ("<<x1_qr.transpose()<<")"<<endl;
     cout<<endl;
+    cout<<"1)PALU relative error err1 = "<<err1_lu<<endl;
+    cout<<endl;
+    cout<<"2)QR relative error err1 = "<<err1_qr<<endl;
+    cout<<endl;
     
-    
-    
-
-    
-
-
-
-
     return 0;
 }
