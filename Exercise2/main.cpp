@@ -60,13 +60,13 @@ int main()
     cout<<endl;
     cout<<"Solution of the linear system A1*x1=b1"<<endl;
     cout<<endl;
-    cout<<"1)PALU decomposition x1 = ("<<x1_lu.transpose()<<")"<<endl;
+    cout<<"1)PALU decomposition x1_LU = ("<<x1_lu.transpose()<<")"<<endl;
     cout<<endl;
-    cout<<"2)QR decomposition x1 = ("<<x1_qr.transpose()<<")"<<endl;
+    cout<<"2)QR decomposition x1_QR = ("<<x1_qr.transpose()<<")"<<endl;
     cout<<endl;
-    cout<<"1)PALU relative error err1 = "<<err1_lu<<endl;
+    cout<<"1)PALU relative error with Euclidean norm err1_LU = "<<err1_lu<<endl;
     cout<<endl;
-    cout<<"2)QR relative error err1 = "<<err1_qr<<endl;
+    cout<<"2)QR relative error with Euclidean norm err1_QR = "<<err1_qr<<endl;
     cout<<endl;
     
     return 0;
