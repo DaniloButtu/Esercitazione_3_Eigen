@@ -44,7 +44,7 @@ int main()
 
     /*Calcolo gli errori relativi dei sistemi.
     Per farlo uso il metodo norm definito sulla classe Vector, che permette di calcolare la norma euclidea dei vettori*/
-    Vector2d x_ex=Vector2d::Ones();
+    Vector2d x_ex=-Vector2d::Ones();
     double err1_lu=(x1_lu-x_ex).norm()/x_ex.norm();
     double err1_qr=(x1_qr-x_ex).norm()/x_ex.norm();
     double err2_lu=(x2_lu-x_ex).norm()/x_ex.norm();
