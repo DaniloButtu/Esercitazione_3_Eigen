@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Eigen/Eigen"
+#include <iomanip>
 
 using namespace std;
 using namespace Eigen;
@@ -60,14 +61,14 @@ int main()
     cout<<endl;
     cout<<"Solution of the linear system A1*x1=b1"<<endl;
     cout<<endl;
-    cout<<"1)PALU decomposition x1_LU = ("<<x1_lu.transpose()<<")"<<endl;
+    cout<<scientific<<setprecision(16)<<"1)PALU decomposition x1_LU = ("<<x1_lu.transpose()<<")"<<endl;
     cout<<endl;
-    cout<<"2)QR decomposition x1_QR = ("<<x1_qr.transpose()<<")"<<endl;
+    cout<<scientific<<setprecision(16)<<"2)QR decomposition x1_QR = ("<<x1_qr.transpose()<<")"<<endl;
     cout<<endl;
-    cout<<"1)PALU relative error with Euclidean norm err1_LU = "<<err1_lu<<endl;
+    cout<<scientific<<setprecision(16)<<"1)PALU relative error with Euclidean norm err1_LU = "<<err1_lu<<endl;
     cout<<endl;
-    cout<<"2)QR relative error with Euclidean norm err1_QR = "<<err1_qr<<endl;
+    cout<<scientific<<setprecision(16)<<"2)QR relative error with Euclidean norm err1_QR = "<<err1_qr<<endl;
     cout<<endl;
-    
+
     return 0;
 }
