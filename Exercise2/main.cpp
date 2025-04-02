@@ -18,6 +18,11 @@ int main()
     Matrix2d A2=v2.reshaped(2, 2).transpose();
     Matrix2d A3=v3.reshaped(2, 2).transpose();
 
+    /*Calcolo i dterminaniti delle matrici, che mi serviranno per vedere se la matrice è non singolare quando applico la fattorizzazione lu*/
+    double det_A1=(v1[0]*v1[3])-(v1[1]*v1[2]);
+    double det_A2=(v2[0]*v2[3])-(v2[1]*v2[2]);
+    double det_A3=(v3[0]*v3[3])-(v3[1]*v3[2]);
+
     /*Costruisco i vettori dei termini noti sommando le righe delle rispettive matrici, 
     con un meno davanti perchè la soluzione deve esssere -(1,1)*/
     Vector2d b1=-A1.rowwise().sum();
@@ -26,6 +31,26 @@ int main()
 
      /*Faccio la decomposizione PA=LU, con la classe template offerta dalla libreria Eigen 
     per matrici non singolari, ed uso il metodo solve per risolvere il sistema con questa fattorizzazione*/
+
+    double tol=1e-16;
+    if(det_A1<=-tol || det_A1>=tol) cout<<"The lu decomposition for A1 is well defined"<<endl;
+    else{
+        cerr<<"Error: the matrix A1 is singular"<<endl;
+        return 1;
+    }
+
+    if(det_A2<=-tol || det_A2>=tol) cout<<"The lu decomposition for A2 is well defined"<<endl;
+    else{
+        cerr<<"Error: the matrix A2 is singular"<<endl;
+        return 1;
+    }
+    
+    if(det_A3<=-tol || det_A3>=tol) cout<<"The lu decomposition for A3 is well defined"<<endl;
+    else{
+        cerr<<"Error: the matrix A3 is singular"<<endl;
+        return 1;
+    }
+
     PartialPivLU<Matrix2d> lu1(A1);
     PartialPivLU<Matrix2d> lu2(A2);
     PartialPivLU<Matrix2d> lu3(A3);
