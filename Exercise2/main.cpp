@@ -32,7 +32,7 @@ int main()
      /*Faccio la decomposizione PA=LU, con la classe template offerta dalla libreria Eigen 
     per matrici non singolari, ed uso il metodo solve per risolvere il sistema con questa fattorizzazione*/
 
-    double tol=1e-16;
+    const double tol=1e-16;
     if(det_A1<=-tol || det_A1>=tol) cout<<"The lu decomposition for A1 is well defined"<<endl;
     else{
         cerr<<"Error: the matrix A1 is singular"<<endl;
